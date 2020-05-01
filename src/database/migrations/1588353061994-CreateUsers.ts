@@ -1,7 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-// eslint-disable-next-line import/prefer-default-export
-export class CreateUsers1588353061994 implements MigrationInterface {
+export default class CreateUsers1588353061994 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
@@ -9,7 +8,7 @@ export class CreateUsers1588353061994 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
